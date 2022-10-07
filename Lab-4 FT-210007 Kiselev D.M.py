@@ -1,43 +1,71 @@
-n = int(input('Введите кол-во сотрудников, которым нужно заказать машину '))
+nhelp = 0
+while nhelp != 1:
+    try:
+        n = int(input('Введите кол-во сотрудников, которым нужно заказать машину '))
+    except ValueError:
+        print('Вы ввели не число!\nПробуйте снова\n')
+    else:
+        nhelp += 1
+        nhelp = nhelp
 a = []
 b = []
-#c = []
 d = []
 itog = []
 sum = 0
 end = []
 endend = []
-for i in range(1, n + 1):  # i - номер машины
-    print(i, 'машина')
-    tarif = int(input('Введите тариф цифрой руб/км для каждой машины '))
-    starif = []
-    starif.append(tarif)
-    starif.append(i)
-    b.append(starif)
-b.sort()
-#print(b)
+k = 0
+while k < 1:
+    try:
+        for i in range(1, n + 1):  # i - номер машины
+            print(i, 'машина')
+            tarif = int(input('Введите тариф цифрой руб/км для каждой машины '))
+            starif = []
+            starif.append(tarif)
+            starif.append(i)
+            b.append(starif)
+        b.sort()
+        # b.sort()
 
-for j in range(1, n + 1):  # j - номер работника
-    km = int(input('Введите расстояние в километрах от работы до дома для каждого сотрудника '))
-    skm = []
-    skm.append(km)
-    skm.append(j)
-    d.append(skm)
-d.sort()
-# print(d, max(d))
+    except ValueError:
+        print('Вы ввели не число!\nПопробуйте снова\n')
+        starif = []
+        b = []
+    else:
+        k += 1
+
+
+k_1 = 0
+while k_1 < 1:
+    try:
+        for j in range(1, n + 1):  # j - номер работника
+            print(j, 'работник')
+            km = int(input('Введите расстояние в километрах от работы до дома для каждого сотрудника '))
+            skm = []
+            skm.append(km)
+            skm.append(j)
+            d.append(skm)
+        d.sort()
+    except ValueError:
+        print('Вы ввели не число!\nПопробуйте снова!\n')
+        skm = []
+        d = []
+    else:
+        k_1 += 1
+
+
 while n > 0:
     maxik = max(d)
     minik = min(b)
-    hind = d.index(maxik)
-    bind = b.index(minik)
+    hind = d.index(maxik)  # индекс максимального расстояния
+    bind = b.index(minik)  # индекс минимального тарифа
     kmotvet = maxik[0]
     numwork = maxik[1]  # номер работника
     tarifotv = minik[0]
     numcar = minik[1]  # номер машины
-    # print(maxik,maxik[0],maxik[1])
-    # print(minik,minik[0],minik[1])
+
     pay = kmotvet * tarifotv
-    sum += pay
+    sum += pay  # Общая сумма
     end.append(numwork)
     end.append(numcar)
     endend.append(end)
@@ -46,9 +74,9 @@ while n > 0:
     n = n - 1
 
 endend.sort()
-#print(endend)
+
 if 1 > 0:
-    # print(*endend, sep="\n")
+
     print(end[::2])
     print(sum)
     c = sum
@@ -63,23 +91,23 @@ if 1 > 0:
 
     list = []
 
-    if (ts == 1 and ((td or te) !=0)):
+    if (ts == 1 and ((td or te) != 0)):
         list.append("Сто")
-    elif (ts == 2 and ((td or te) !=0)):
+    elif (ts == 2 and ((td or te) != 0)):
         list.append("Двести")
-    elif (ts == 3 and ((td or te) !=0)):
+    elif (ts == 3 and ((td or te) != 0)):
         list.append("Триста")
-    elif (ts == 4 and ((td or te) !=0)):
+    elif (ts == 4 and ((td or te) != 0)):
         list.append("Четыреста")
-    elif (ts == 5 and ((td or te) !=0)):
+    elif (ts == 5 and ((td or te) != 0)):
         list.append("Пятьсот")
-    elif (ts == 6 and ((td or te) !=0)):
+    elif (ts == 6 and ((td or te) != 0)):
         list.append("Шестьсот")
-    elif (ts == 7 and ((td or te) !=0)):
+    elif (ts == 7 and ((td or te) != 0)):
         list.append("Семьсот")
-    elif (ts == 8 and ((td or te) !=0)):
+    elif (ts == 8 and ((td or te) != 0)):
         list.append("Восемьсот")
-    elif (ts == 9 and ((td or te) !=0)):
+    elif (ts == 9 and ((td or te) != 0)):
         list.append("Девятьсот")
     elif (ts == 1 and td == 0 and te == 0):
         list.append("Сто тысяч")
@@ -143,21 +171,21 @@ if 1 > 0:
         list.append("девяносто тысяч ")
     elif td == 1 and tdiskl == 0:
         list.append("десять тысяч")
-    elif (td == 2 and tdiskl == 0 and te !=0):
+    elif (td == 2 and tdiskl == 0 and te != 0):
         list.append("двадцать")
-    elif (td == 3 and tdiskl == 0 and te !=0):
+    elif (td == 3 and tdiskl == 0 and te != 0):
         list.append("тридцать")
-    elif (td == 4 and tdiskl == 0 and te !=0):
+    elif (td == 4 and tdiskl == 0 and te != 0):
         list.append("сорок")
-    elif (td == 5 and tdiskl == 0 and te !=0):
+    elif (td == 5 and tdiskl == 0 and te != 0):
         list.append("пятьдесят")
-    elif (td == 6 and tdiskl == 0 and te !=0):
+    elif (td == 6 and tdiskl == 0 and te != 0):
         list.append("шестьдесят")
-    elif (td == 7 and tdiskl == 0 and te !=0):
+    elif (td == 7 and tdiskl == 0 and te != 0):
         list.append("семьдесят")
-    elif (td == 8 and tdiskl == 0 and te !=0):
+    elif (td == 8 and tdiskl == 0 and te != 0):
         list.append("восемьдесят")
-    elif (td == 9 and tdiskl == 0 and te !=0):
+    elif (td == 9 and tdiskl == 0 and te != 0):
         list.append("девяносто")
     else:
         td = 0
@@ -255,7 +283,7 @@ if 1 > 0:
     elif (e == 4 and diskl == 0):
         list.append("четыре рубля")
     elif (e == 5 and diskl == 0):
-        list.append("пять рублкй")
+        list.append("пять рублей")
     elif (e == 6 and diskl == 0):
         list.append("шесть рублей")
     elif (e == 7 and diskl == 0):
@@ -267,13 +295,7 @@ if 1 > 0:
     else:
         e = 0
 
-
-
-
     if e == 0:
         print(*list, 'рублей')
     else:
         print(*list)
-
-
-
